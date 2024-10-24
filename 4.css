@@ -1,0 +1,145 @@
+:root {
+    --bg-image: url('https://i.pinimg.com/enabled_lo/474x/61/9d/4d/619d4d905b1ab06ff36bf04507a02646.jpg');
+    --header-bg: #000000;
+    --header-color: white;
+    --link-color: white;
+    --profile-image-size: 250px;
+    --footer-bg: #652859;
+}
+
+.light-theme {
+    --bg-image: url('https://i.pinimg.com/enabled_lo/474x/2a/a9/49/2aa94908837d91f2b09d70af489571ad.jpg');
+    --header-bg: #d1eded;
+    --header-color: black;
+    --link-color: black;
+    --footer-bg: #f1f1f1;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: var(--bg-image);
+    background-size: cover;
+    background-position: center;
+    transition: background 0.3s; /* Hiệu ứng chuyển đổi nền */
+}
+
+header {
+    background-color: var(--header-bg);
+    color: var(--header-color);
+    padding: 10px 20px;
+    position: sticky;
+    top: 0; /* Làm cho header cố định khi cuộn */
+    z-index: 1000; /* Đảm bảo header ở trên cùng */
+}
+
+button {
+    background-color: var(--header-bg);
+    color: var(--header-color);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline-block;
+    position: relative;
+    margin-right: 20px;
+}
+
+nav a {
+    color: var(--link-color);
+    text-decoration: none;
+    position: relative;
+}
+
+nav a::after {
+    content: '';
+    display: block;
+    height: 2px;
+    width: 0;
+    background: var(--link-color);
+    transition: width 0.3s;
+    position: absolute;
+    bottom: -5px;
+    left: 0;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+.dropdown {
+    display: none;
+    position: absolute;
+    background-color: var(--header-bg);
+    padding: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+nav ul li:hover .dropdown {
+    display: block;
+}
+
+.dropdown li {
+    display: block;
+    margin: 0;
+}
+
+.dropdown a {
+    display: block;
+    padding: 4px 40px;
+}
+
+.dropdown a:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.profile {
+    display: flex;
+    margin: 20px;
+    flex-wrap: wrap;
+}
+
+.profile-image {
+    border-radius: 50%;
+    width: var(--profile-image-size);
+    height: var(--profile-image-size);
+    margin-right: 20px;
+}
+
+.info {
+    max-width: 500px;
+}
+
+footer {
+    text-align: center;
+    padding: 10px;
+    background-color: var(--footer-bg);
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .profile {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .profile-image {
+        margin: 0 0 20px 0;
+    }
+
+    nav ul li {
+        display: block;
+        margin-right: 0;
+    }
+}
